@@ -1,9 +1,9 @@
 /*
-	Theme Name: Jay Gidwitz Art 3 Child Theme
-	Theme URI: http://my.studiopress.com/themes/metro/
-	Description: Metro is a responsive child theme created for the Genesis Framework.
+	Theme Name: Jay Gidwitz Art 5 Child Theme
+	Theme URI: http://jaygidwitz.com/web-design/
+	Description: A responsive child theme created for the Genesis Framework.
 	Author: StudioPress and Pixel Perfect Industries
-	Author URI: http://www.studiopress.com/
+	Author URI: http://www.jaygidwitz.com/
 
 	Version: 1.0
 
@@ -16,9 +16,21 @@
 	License URI: http://www.opensource.org/licenses/gpl-license.php 
 */
 /* Import Fonts */
-@import url(http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic);
-@import url(http://fonts.googleapis.com/css?family=Crimson+Text:400,700,700italic,400italic);
 
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+
+@font-face {
+    font-family: 'LigatureSymbols';
+    src: url('http://jgtest.wpengine.com/wp-content/themes/jaygidwitzart-v5/fonts/LigatureSymbols-2.09.eot');
+    src: url('http://jgtest.wpengine.com/wp-content/themes/jaygidwitzart-v5/fonts/LigatureSymbols-2.09.eot?#iefix') format('embedded-opentype'),
+         url('http://jgtest.wpengine.com/wp-content/themes/jaygidwitzart-v5/fonts/LigatureSymbols-2.09.woff') format('woff'),
+         url('http://jgtest.wpengine.com/wp-content/themes/jaygidwitzart-v5/fonts/LigatureSymbols-2.09.ttf') format('truetype'),
+         url('http://jgtest.wpengine.com/wp-content/themes/jaygidwitzart-v5/fonts/LigatureSymbols-2.09.svg#LigatureSymbols') format('svg');
+    src: url('http://jgtest.wpengine.com/wp-content/themes/jaygidwitzart-v5/fonts/LigatureSymbols-2.09.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* Table of Contents
 
@@ -216,11 +228,8 @@ textarea,
 }
 
 button,
-input[type="button"],
-input[type="submit"],
 .btn,
 .sidebar .enews-widget p,
-.sidebar .enews-widget .widgettitle,
 .genesis-nav-menu a,
 .genesis-nav-menu li.right,
 .navigation li a,
@@ -229,13 +238,24 @@ input[type="submit"],
 .navigation li.disabled,
 .post-comments a,
 .post-comments a:hover,
+#subnav .subnav-left {
+	color: #fff;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 #footer a,
-#footer p,
-#subnav .subnav-left,
+#footer p {
+	color: #333;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.sidebar .enews-widget .widgettitle,
+input[type="button"],
+input[type="submit"],
 #title a,
 #title a:hover {
 	color: #fff;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Anonymous Pro', sans-serif;
 }
 
 #subnav .subnav-left a, {
@@ -265,7 +285,7 @@ h6,
 #comments h3,
 #respond h3,
 #title {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Anonymous Pro', sans-serif;
 }
 
 /* 02c - Font Size ----------- */
@@ -399,6 +419,13 @@ strong,
 	font-weight: 700;
 }
 
+#footer p {
+	font-weight: 200;
+	letter-spacing: 2px;
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+
 a.social-buttons,
 .after-post,
 .wp-caption {
@@ -446,6 +473,28 @@ span.uppercase,
 
 /* 03a - Structure ----------- */
 
+
+	.genesis-nav-menu li,
+	.menu-secondary,
+	#footer .creds,
+	#footer .gototop,
+	#header ul.genesis-nav-menu,
+	#header .search-form {
+		float: none;
+	}
+
+	.genesis-nav-menu,
+	#footer .creds,
+	#footer .gototop,
+	#header .search-form,
+	#title,
+	#title-area {
+		text-align: center;
+	}
+
+
+
+
 .footer-widgets,
 #wrap {
 	background-color: #fff;
@@ -459,10 +508,28 @@ span.uppercase,
 	max-width: 700px;
 }
 
+.windows #wrap {
+	max-width: none;
+}
+
+
+.col {
+	max-width: 1080px;
+	margin: 32px auto;
+	margin: 2rem auto;
+	overflow: hidden;
+}
+
 #wrap {
 	clear: both;
 	padding: 36px;
 	padding: 2.25rem;
+}
+
+.windows #wrap {
+	clear: both;
+	padding: 36px 0px;
+	padding: 2.25rem 0rem;
 }
 
 #inner {
@@ -470,6 +537,13 @@ span.uppercase,
 	overflow: visible;
 	padding-top: 32px;
 	padding-top: 2rem;
+}
+
+.windows #inner {
+	clear: both;
+	overflow: visible;
+	padding-top: 0px;
+	padding-top: 0rem;
 }
 
 .metro-landing #inner {
@@ -486,10 +560,15 @@ span.uppercase,
 .footer-widgets-2,
 .footer-widgets-3,
 .sidebar,
-.subnav-left,
+/*.subnav-left,*/
 #header .widget-area {
 	width: 31.111111111%; /* 336px / 1080px */
 }
+
+/*jg addition*/
+.subnav-left {
+	width: 40%;
+	}
 
 .content-sidebar-sidebar .sidebar,
 .sidebar-content-sidebar .sidebar,
@@ -556,8 +635,11 @@ span.uppercase,
 /* 03c - Header ----------- */
 
 #header {
-	min-height: 87px;
-	overflow: hidden;
+	min-height: 250px;
+	overflow: visible;
+	background: url('/wp-content/themes/jaygidwitzart-v5/images/jay-gidwitz-logo-v8.png') no-repeat center top;
+	width: 392px;
+	margin: 0px auto;
 }
 
 #title {
@@ -589,6 +671,7 @@ span.uppercase,
 .header-full-width #title-area {
 	width: 100%;
 	color: black;
+/*	display: none;*/
 }
 
 .header-image #title,
@@ -596,7 +679,7 @@ span.uppercase,
 .header-image #title-area {
 	display: block;
 	float: left;
-	min-height: 87px;
+	min-height: 240px;
 	overflow: hidden;
 	text-indent: -9999px;
 }
@@ -611,6 +694,15 @@ span.uppercase,
 #content {
 	padding: 8px 16px 12px;
 	padding: 0.5rem 1rem 0.75rem;
+	padding: 8px 0px;
+	padding: 0.5rem 0rem;
+}
+
+.windows #content {
+	padding: 0px 16px 12px;
+	padding: 0rem 1rem 0.75rem;
+	padding: 0px 0px;
+	padding: 0rem 0rem; */
 }
 
 .metro-home #content {
@@ -622,9 +714,9 @@ span.uppercase,
 	background: url(images/lines.png) bottom repeat-x;
 	margin-bottom: 48px;
 	margin-bottom: 3rem;
-	padding-bottom: 32px;
+/*	padding-bottom: 32px;
 	padding-bottom: 2rem;
-}
+*/}
 
 .metro-home .entry {
 	background: none;
@@ -669,8 +761,8 @@ span.uppercase,
 }
 
 .entry-content p {
-	margin-bottom: 26px;
-	margin-bottom: 1.625rem;
+/*	margin-bottom: 26px;
+	margin-bottom: 1.625rem;*/
 }
 
 blockquote {
@@ -692,7 +784,8 @@ blockquote::before {
 .post-info,
 .post-meta {
 	clear: both;
-	line-height: 1.5;
+	/*line-height: 1.5;*/
+	line-height: 4;
 }
 
 .post-info {
@@ -912,16 +1005,17 @@ p.pages,
 	/*background-color: #333;*/
 	border-top: 1px solid #edede8;
 	border-bottom: 1px solid #edede8;
+	background-color: white;
 }
 
 .genesis-nav-menu ul {
-	float: left;
+	float: none;
 	width: 100%;
 }
 
 .genesis-nav-menu li {
 	display: inline-block;
-	float: left;
+	float: none;
 	list-style-type: none;
 	text-align: left;
 }
@@ -932,12 +1026,12 @@ p.pages,
 	padding: 1rem 1.25rem 0.875rem;
 	position: relative;
 	overflow: hidden;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	text-transform: uppercase;
-	font-weight: 700;
-	font-size: 12px;
+	font-weight: 200;
+	font-size: 13px;
 	color: #a7a7a3;
-	letter-spacing: 0.05em;
+	letter-spacing: 0.3em;
 	padding-left: 24px;
 	background-position: 0 0;
 	background-repeat: no-repeat;
@@ -972,7 +1066,7 @@ p.pages,
 	padding: 16px 20px 14px;
 	padding: 1rem 1.25rem 0.875rem;
 	position: relative;
-	width: 120px;
+	width: 160px;
 	box-shadow: none;
 	color: #a7a7a3;
 	
@@ -998,7 +1092,7 @@ p.pages,
 .genesis-nav-menu li ul {
 	left: -9999px;
 	position: absolute;
-	width: 160px;
+	width: 200px;
 	z-index: 99;
 	border-left: 1px solid #edede8;
 	border-right: 1px solid #edede8;
@@ -1137,7 +1231,7 @@ ul.genesis-nav-menu li.sfHover ul,
 #subnav {
 	background-color: #333;
 	overflow: hidden;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Anonymous Pro', sans-serif;
 }
 
 #subnav .wrap {
@@ -1409,7 +1503,7 @@ a.social-buttons {
 	overflow: hidden;
 	padding: 8px 0;
 	padding: 0.5rem 0;
-	width: 25%;
+	width: 20%;
 }
 
 a.social-buttons.last {
@@ -1432,7 +1526,7 @@ a.social-buttons:hover {
 ---------------------------------------------------------------------------------------------------- */
 
 #footer {
-	background-color: #333;
+	background-color: white;
 	clear: both;
 	overflow: hidden;
 	padding: 8px 0;
@@ -1715,6 +1809,138 @@ p.wp-caption-text {
 	margin-bottom:35px;
 	font-size: 22px;
 }
+
+
+/*
+13 From Aol Nicole Richie Site
+---------------------------------------------------------------------------------------------------- */
+
+
+.sectionWindow {
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center center;
+background-color: transparent;
+background-size: cover;
+}
+
+.sectionWindowInner {
+height: 380px;
+}
+
+.sectionWindow.sectionWindowRiver {
+background-image:url(http://jgtest.wpengine.com/wp-content/uploads/2013/06/river-of-darkness.jpg);
+}
+
+
+.about-link-icon a{
+   padding-left: 30px !important;
+   background-image: url(images/about.png);
+   background-position: left;
+   background-repeat: no-repeat;
+}
+
+
+/*
+13 3 Box Series Home Page
+---------------------------------------------------------------------------------------------------- */
+
+
+			#gallery-1 {
+				margin: auto;
+			}
+			#gallery-1 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 33%;
+			}
+			#gallery-1 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-1 .gallery-caption {
+				margin-left: 0;
+			}
+		
+a.post-edit-link {
+	display:none;
+	}
+
+
+
+
+
+/*
+13 LigatureSymbols Font
+---------------------------------------------------------------------------------------------------- */
+
+
+
+#footer a.lsf {
+  font-family: 'LigatureSymbols';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+#footer a.lsf-icon:before {
+  content:attr(title);
+  margin-right:0.3em;
+  font-size:130%;
+  font-family: 'LigatureSymbols';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+
+li.lsf a{
+  font-family: 'LigatureSymbols';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-size: 1.4rem;
+}
+
+li.lsf a.lsf-icon:before {
+  content:attr(title);
+  margin-right:0.3em;
+  font-size:130%;
+  font-family: 'LigatureSymbols';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+
 
 /*
 13 Theme Colors

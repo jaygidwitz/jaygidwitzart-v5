@@ -1,0 +1,23 @@
+<div style="display:none;">
+    <div id="sidecar-content">
+        <iframe src="http://surrealtoday.wpengine.com/wp-content/themes/surrealismtoday-v2/sidecar/sidecar/index.html" style="overflow:hidden;height:1000px;width:100%" height="1000px" width="100%" scrolling="no" frameborder="0"></iframe>
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(function(){
+        jQuery.data(document.body, 'Sidecar', new Sidecar( '#sidecar-content' ));
+    });
+</script>
+
+
+<script type="text/javascript">
+var myDeck = jQuery('#slidedeck').slidedeck();
+
+jQuery('a.goToSlide').click(function(event){
+event.preventDefault();
+var slideNumber = parseInt(jQuery(this).attr('href').replace(/.+#/, ''));
+jQuery('dl.slidedeck-2723').slidedeck().goTo(slideNumber);
+});
+
+</script>

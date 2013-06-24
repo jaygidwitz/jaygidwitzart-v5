@@ -31,8 +31,8 @@ add_theme_support( 'custom-background', array( 'wp-head-callback' => '__return_f
 // Add support for custom header
 add_theme_support( 'genesis-custom-header', array(
 	'flex-height'	=> true,
-	'height'		=> 87,
-	'width'			=> 1080
+	'height'		=> 220,
+	'width'			=> 293
 ) );
 
 // Create additional color style options
@@ -164,3 +164,99 @@ $content_width = 1080;
 
 add_theme_support( 'genesis-connect-woocommerce' );
 
+
+
+
+
+
+
+/**
+ *  Make Max Width 1080px 
+ *
+ * @param	content
+ * @return	string	1080 width for content on a page with infinite width (first)
+ */
+
+add_shortcode( 'maxwidth', 'max_width_shortcode' );
+
+function max_width_shortcode( $atts , $content ) {
+	
+	$return_html = '<div class="col">' . do_shortcode ( $content ) . '</div>';
+	
+	return $return_html;
+}
+
+
+/**
+ *  Make Window 
+ *
+ * @param	content
+ * @return	string	1080 width for content on a page with infinite width (first)
+ */
+
+add_shortcode( 'window', 'window_shortcode' );
+
+function window_shortcode( $atts , $content ) {
+	
+	$return_html = '<div class="sectionWindow" style="background-image: url(' . do_shortcode ( $content ) . ')" >
+<div class="sectionWindowInner"></div>
+</div>';
+	
+	return $return_html;
+}
+
+
+
+
+function box_shortcode($atts) {
+    extract(shortcode_atts(array(
+        "link" => 'http://link.com',
+        "title" => 'title',
+        "thumb_url" => 'http://thumb-url.com/',
+        "caption"=> 'caption',
+        "alt" => '',
+    ), $atts));
+    return '<dl class="gallery-item">
+			<dt class="gallery-icon">
+				<a href="'.$link.'" title="'.$title.'"><img width="300" height="300" src="'.$thumb_url.'" class="attachment-thumbnail" alt="'.$alt.'"></a>
+			</dt>
+				<dd class="wp-caption-text gallery-caption">
+					'.$caption.'
+				</dd>
+		</dl>';
+}
+add_shortcode("box", "box_shortcode");
+
+
+
+
+
+/**
+ *  Three Boxes Shortcode... to surround 'box' shortcode
+ *
+ * @param	content
+ * @return	string	1080 width for content on a page with infinite width (first)
+ */
+
+add_shortcode( 'three_boxes', 'three_boxes_shortcode' );
+
+function three_boxes_shortcode( $atts , $content ) {
+	
+	$return_html = '<div class="col"><div id="gallery-1" class="gallery galleryid-50 gallery-columns-3 gallery-size-thumbnail">' . do_shortcode ( $content ) . '<p><br style="clear: both"><br><br style="clear: both;"></p></div><p></p></div>';
+	
+	return $return_html;
+}
+
+/**
+ *  Make Page Blog an Siggle posts show Content Sidebar
+ */
+
+add_filter( 'genesis_pre_get_option_site_layout', 'wpsites_change_layout_genesis');
+function wpsites_change_layout_genesis( $opt ) {
+if (is_single() || is_page( '1010' ) ) {
+    $opt = 'content-sidebar'; 
+    return $opt;
+ 
+	}
+	
+}
